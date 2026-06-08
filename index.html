@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet Our Interns</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:       #0d1f3c;
+      --royal:      #1a3f7a;
+      --mid:        #2563b0;
+      --sky:        #5b9bd5;
+      --ice:        #daeaf7;
+      --frost:      #f0f6fc;
+      --white:      #ffffff;
+      --gold:       #c9a84c;
+      --text-dark:  #0d1f3c;
+      --text-mid:   #3a5278;
+      --text-light: #7a95b8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── BACKGROUND ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(37,99,176,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 85% 80%, rgba(91,155,213,0.2) 0%, transparent 55%),
+        linear-gradient(160deg, #0a1628 0%, #0d1f3c 45%, #102347 100%);
+      z-index: 0;
+    }
+
+    /* subtle grid overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(91,155,213,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(91,155,213,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      z-index: 0;
+    }
+
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 32px 80px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      text-align: center;
+      margin-bottom: 64px;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .header-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 16px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    header h1 em {
+      font-style: italic;
+      color: var(--sky);
+    }
+
+    .header-rule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .header-rule::before,
+    .header-rule::after {
+      content: '';
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--sky));
+    }
+    .header-rule::after {
+      background: linear-gradient(90deg, var(--sky), transparent);
+    }
+    .header-rule span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .header-sub {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── GRID ── */
+    .intern-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 28px;
+    }
+
+    /* ── CARD ── */
+    .intern-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(91,155,213,0.18);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0 24px;
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .intern-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 56px rgba(0,0,0,0.4), 0 0 0 1px rgba(91,155,213,0.35);
+      border-color: rgba(91,155,213,0.45);
+    }
+
+    /* staggered entrance */
+    .intern-card:nth-child(1)  { animation-delay: 0.05s; }
+    .intern-card:nth-child(2)  { animation-delay: 0.10s; }
+    .intern-card:nth-child(3)  { animation-delay: 0.15s; }
+    .intern-card:nth-child(4)  { animation-delay: 0.20s; }
+    .intern-card:nth-child(5)  { animation-delay: 0.25s; }
+    .intern-card:nth-child(6)  { animation-delay: 0.30s; }
+    .intern-card:nth-child(7)  { animation-delay: 0.35s; }
+    .intern-card:nth-child(8)  { animation-delay: 0.40s; }
+    .intern-card:nth-child(9)  { animation-delay: 0.45s; }
+    .intern-card:nth-child(10) { animation-delay: 0.50s; }
+
+    /* photo banner */
+    .photo-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a3f7a 0%, #2563b0 100%);
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .intern-card:hover .photo-wrap img {
+      transform: scale(1.05);
+    }
+
+    /* placeholder avatar */
+    .avatar-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-initials {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.05em;
+    }
+
+    /* gradient overlay on photo bottom */
+    .photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(transparent, rgba(13,31,60,0.7));
+      pointer-events: none;
+    }
+
+    /* card body */
+    .card-body {
+      padding: 20px 20px 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    .intern-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .intern-university {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--sky);
+      letter-spacing: 0.03em;
+      margin-bottom: 10px;
+    }
+
+    /* study pill */
+    .intern-study {
+      display: inline-block;
+      background: rgba(37,99,176,0.25);
+      border: 1px solid rgba(91,155,213,0.3);
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--ice);
+      padding: 4px 12px;
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      margin-top: 72px;
+      font-size: 0.75rem;
+      color: var(--text-light);
+      letter-spacing: 0.06em;
+      animation: fadeUp 0.8s 0.6s ease both;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <header>
+    <p class="header-eyebrow">Summer 2025</p>
+    <h1>Meet Our <em>Interns</em></h1>
+    <div class="header-rule"><span></span></div>
+    <p class="header-sub">Ten talented students joining us from across the country</p>
+  </header>
+
+  <div class="intern-grid">
+
+    <!-- 1 -->
+    <div class="intern-card">
+      <div class="photo-wrap">
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">LP</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="intern-name">Laura Preston</div>
+        <div class="intern-university">Lehigh University</div>
+        <span class="intern-study">Economics &amp; Psychology</span>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="intern-card">
+      <div class="photo-wrap">
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">AG</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="intern-name">Andrew Greenberg</div>
+        <div class="intern-university">Wake Forest University</div>
+        <span class="intern-study">Engineering &amp; Economics</span>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="intern-card">
+      <div class="photo-wrap">
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">CV</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="intern-name">Chase Vaughan</div>
+        <div class="intern-university">Wesleyan University</div>
+        <span class="intern-study">History</span>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="intern-card">
+      <div class="photo-wrap">
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">AF</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="intern-name">Abby Finn</div>
+        <div class="intern-university">Penn State</div>
+        <span class="intern-study">Finance</span>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="intern-card">
+      <div class="photo-wrap">
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">CM</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="intern-name">Catherine McCann</div>
+        <div class="intern-university">Boston College</div>
+        <span class="intern-study">Economics</span>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="intern-card">
+      <div class="photo-wrap">
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">RR</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="intern-name">Rajan Rastogi</div>
+        <div class="intern-university">Wake Forest University</div>
+        <span class="intern-study">Business</span>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="intern-card">
+      <div class="photo-wrap">
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">BJ</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="intern-name">Brian Jaeger</div>
+        <div class="intern-university">Georgetown University</div>
+        <span class="intern-study">Classics</span>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="intern-card">
+      <div class="photo-wrap">
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">AA</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="intern-name">Ayla Abban</div>
+        <div class="intern-university">Amherst College</div>
+        <span class="intern-study">Economics</span>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="intern-card">
+      <div class="photo-wrap">
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">ET</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="intern-name">Ethan Thomas</div>
+        <div class="intern-university">Fairfield University</div>
+        <span class="intern-study">Finance</span>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="intern-card">
+      <div class="photo-wrap">
+        <div class="avatar-placeholder">
+          <span class="avatar-initials">DO</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="intern-name">Drew O'Connor</div>
+        <div class="intern-university">University of South Carolina</div>
+        <span class="intern-study">Business</span>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+
+  <footer>
+    &copy; 2025 &nbsp;·&nbsp; Summer Intern Class
+  </footer>
+
+</div>
+</body>
+</html>
