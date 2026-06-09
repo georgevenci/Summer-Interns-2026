@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Meet Our Interns</title>
+  <title>Meet Our Interns | RxSense</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy:       #0d1f3c;
@@ -15,7 +16,7 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Segoe UI', Calibri, 'Trebuchet MS', sans-serif;
+      font-family: 'Outfit', 'Segoe UI', Calibri, Arial, sans-serif;
       background: var(--navy);
       color: var(--white);
       min-height: 100vh;
@@ -24,9 +25,9 @@
     body::before {
       content: ''; position: fixed; inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(37,99,176,0.35) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 85% 80%, rgba(91,155,213,0.2) 0%, transparent 55%),
-        linear-gradient(160deg, #0a1628 0%, #0d1f3c 45%, #102347 100%);
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0,102,232,0.3) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 85% 80%, rgba(3,193,242,0.15) 0%, transparent 55%),
+        linear-gradient(160deg, #0e1230 0%, #1a274f 45%, #1e2d5a 100%);
       z-index: 0;
     }
     body::after {
@@ -44,9 +45,9 @@
     }
     header { text-align: center; margin-bottom: 64px; animation: fadeDown 0.8s ease both; }
     .header-eyebrow {
-      font-weight: 500; font-size: 0.75rem;
-      letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--sky); margin-bottom: 16px;
+      font-weight: 700; font-size: 0.78rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: #03C1F2; margin-bottom: 16px;
     }
     header h1 {
       font-family: Georgia, 'Times New Roman', serif;
@@ -64,7 +65,7 @@
       background: linear-gradient(90deg, transparent, var(--sky));
     }
     .header-rule::after { background: linear-gradient(90deg, var(--sky), transparent); }
-    .header-rule span { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    .header-rule span { width: 6px; height: 6px; border-radius: 50%; background: #03C1F2; }
     .header-sub { font-size: 0.95rem; color: var(--text-light); letter-spacing: 0.04em; }
 
     .intern-grid {
@@ -218,6 +219,21 @@
       letter-spacing: 0.06em;
       animation: fadeUp 0.8s 0.6s ease both;
     }
+    .brand-logo {
+      font-family: 'Outfit', 'Segoe UI', Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #0066E8 0%, #03C1F2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .brand-logo span {
+      font-weight: 400;
+    }
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-24px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -248,7 +264,8 @@
 
 <div class="page-wrapper">
   <header>
-    <p class="header-eyebrow">Summer 2026</p>
+    <div class="brand-logo">Rx<span>Sense</span></div>
+    <p class="header-eyebrow">Business Analyst Internship 2026</p>
     <h1>Meet Our <em>Interns</em></h1>
     <div class="header-rule"><span></span></div>
     <p class="header-sub">Ten talented students joining us from across the country</p>
